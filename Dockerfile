@@ -4,7 +4,7 @@ MAINTAINER hackcave
 
 VOLUME /app
 
-VOLUME /root/.pub-cache
+VOLUME /home/hackcave/.pub-cache
 
 WORKDIR /app
 
@@ -15,3 +15,7 @@ RUN apt-get update && apt-get install -y build-essential \
   rubygems
 
 RUN gem install sass
+
+COPY entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
